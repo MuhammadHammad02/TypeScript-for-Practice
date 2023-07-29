@@ -1,9 +1,14 @@
-let array1 : number[] = [5, 6, 7];//correct syntax
-console.log(array1[1]);//correct syntax
-let array2:Array<number> = [1, 2, 3];//alternative correct syntax
-let array3 : number[] = [];//correct syntax to define an empty array
+//Named function with optional and default parameters
+//(Note that the parameter type will be optional when used with default value)
+function buildName(firstName: string, lastName = "Khan") : string {
+    if (lastName)
+        return firstName + " " + lastName;
+    else
+        return firstName;
+}
 
-//let array4: number[] = new number[2];//error
-
-let array5: number[] = [];
-array5.push(1234);//dynamically adding
+let result1 = buildName("Majid");  //works correctly because last parameter is optional
+//let result2 = buildName("Bob", "Adams", "Sr.");  //error, too many parameters
+let result3 = buildName("Hammad", "Khan");  //correct
+console.log(result1)
+console.log(result3)
