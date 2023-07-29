@@ -1,71 +1,79 @@
-/*console.log("Hello World!")
+let myname: string| null;
 
-let message = "My name is Hammad"
+myname = 'hammad';
+console.log(myname)
 
-console.log(message)
+myname = null;
 
-// strongly types syntax
+console.log(myname)
 
-let a: string = "Pakistan";
+//myname = undefined // error
+//myname = 12 // error
 
-let b: number = 9;
+let myAge : string| number
 
-let c: boolean = true;
+myAge = 34; // narrowing
 
-// type inference
+console.log(myAge)
+//console.log(myAge.toLowerCase()); // Error
 
-let d = "USA";
+myAge = "Dont Know";
 
-let e = 10.9;
+console.log(myAge);
+console.log(myAge.toString()); // common to both types can be called even without narrowing
 
-let f = false;
+console.log(myAge.toUpperCase()); // can be called on string because of narrowing
 
-a = "Canada";
+let newAge = Math.random() > 0.5 ? "Khan": 60;
 
-e = 222;
+//newAge.toLowerCase(); // error: tanspiler can not narrow
 
-f= true
+if (newAge == "Khan"){
+    // type of newAge : string
 
-// use const where value will not be changed
-
-const h = 5;
-const g: number = 33;
-const i = 'best';
-
-// use let instead of var
-// because letv has blocked scope
-
-if(true){
-    let z = 4;
+    newAge.toUpperCase(); // can be called
 }
-else{
-    let z = "string";
+
+if (typeof newAge === "string"){
+
+    newAge.toLowerCase(); //can be called
 }
-console.log("let: " + z ) 
 
-*/
+typeof newAge === "string"
+? newAge.toUpperCase() //Ok string
+: newAge.toFixed() // ok number
 
-/*import inquirer from "inquirer";
+let age : number | "died"| "unknown";
 
-let answers = await inquirer.prompt([{
-    name: 'age',
-    tyep: 'number',
-    message: "Kindly enter age"
-}])
+//age= "Hammad"// error
 
-console.log("Insha Allah, in " + (60 - answers.age) + "years  you will be 60 years old")*/
+age = 95 //ok
+age = "died" //ok
+age = 'unknown'//ok
 
-/*
-import inquirer from "inquirer";
-import chalk from "chalk";
+let hammad: 'hammad'
 
-let answers = await inquirer.prompt([{
-    name: 'age',
-    type: 'number',
-    message: "Kindly enter age"
-}])
-
-console.log("Inahsa Allah in" + (60 - answers.age) + 'years you will be 60 years old')
-*/
+hammad = 'hammad'
+//hammad = 'khan' //error
 
 
+let yourName = Math.random() > 0.6 ? "Hira Khan": undefined;
+
+if (yourName) {
+    yourName.toUpperCase(); // Ok: string
+}
+
+//yourName.toUpperCase();//Error: Object is possibly 'undefined'.
+
+yourName?.toUpperCase();//OK
+
+// You can also define a type alias
+type RawData = boolean | number | string | null | undefined;
+
+let data: RawData;
+
+// You can even combine them
+
+type Id = number | string;
+
+type IdMaybe = Id | undefined | null;

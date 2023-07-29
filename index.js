@@ -1,53 +1,43 @@
-/*console.log("Hello World!")
-
-let message = "My name is Hammad"
-
-console.log(message)
-
-// strongly types syntax
-
-let a: string = "Pakistan";
-
-let b: number = 9;
-
-let c: boolean = true;
-
-// type inference
-
-let d = "USA";
-
-let e = 10.9;
-
-let f = false;
-
-a = "Canada";
-
-e = 222;
-
-f= true
-
-// use const where value will not be changed
-
-const h = 5;
-const g: number = 33;
-const i = 'best';
-
-// use let instead of var
-// because letv has blocked scope
-
-if(true){
-    let z = 4;
+let myname;
+myname = 'hammad';
+console.log(myname);
+myname = null;
+console.log(myname);
+//myname = undefined // error
+//myname = 12 // error
+let myAge;
+myAge = 34; // narrowing
+console.log(myAge);
+//console.log(myAge.toLowerCase()); // Error
+myAge = "Dont Know";
+console.log(myAge);
+console.log(myAge.toString()); // common to both types can be called even without narrowing
+console.log(myAge.toUpperCase()); // can be called on string because of narrowing
+let newAge = Math.random() > 0.5 ? "Khan" : 60;
+//newAge.toLowerCase(); // error: tanspiler can not narrow
+if (newAge == "Khan") {
+    // type of newAge : string
+    newAge.toUpperCase(); // can be called
 }
-else{
-    let z = "string";
+if (typeof newAge === "string") {
+    newAge.toLowerCase(); //can be called
 }
-console.log("let: " + z )
-
-*/
-import inquirer from "inquirer";
-let answers = await inquirer.prompt([{
-        name: 'age',
-        tyep: 'number',
-        message: "Kindly enter age"
-    }]);
-console.log("Insha Allah, in " + (60 - answers.age) + "years  you will be 60 years old");
+typeof newAge === "string"
+    ? newAge.toUpperCase() //Ok string
+    : newAge.toFixed(); // ok number
+let age;
+//age= "Hammad"// error
+age = 95; //ok
+age = "died"; //ok
+age = 'unknown'; //ok
+let hammad;
+hammad = 'hammad';
+//hammad = 'khan' //error
+let yourName = Math.random() > 0.6 ? "Hira Khan" : undefined;
+if (yourName) {
+    yourName.toUpperCase(); // Ok: string
+}
+//yourName.toUpperCase();//Error: Object is possibly 'undefined'.
+yourName?.toUpperCase(); //OK
+let data;
+export {};
