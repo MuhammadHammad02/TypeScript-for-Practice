@@ -1,14 +1,15 @@
-//Named function with optional and default parameters
-//(Note that the parameter type will be optional when used with default value)
-function buildName(firstName: string, lastName = "Khan") : string {
-    if (lastName)
-        return firstName + " " + lastName;
-    else
-        return firstName;
+function buildName(firstName: string, ...restOfName: string[]) {//Named function with Rest parameters
+	return firstName + " " + restOfName.join(" ");
 }
 
-let result1 = buildName("Majid");  //works correctly because last parameter is optional
-//let result2 = buildName("Bob", "Adams", "Sr.");  //error, too many parameters
-let result3 = buildName("Hammad", "Khan");  //correct
-console.log(result1)
-console.log(result3)
+var employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+
+console.log(employeeName)
+
+var buildNameFun: (fname: string, ...rest: string[])=>string =
+function (firstName: string, ...restOfName: string[]) {
+	return firstName + " " + restOfName.join(" ");
+}
+var myFriends = buildNameFun("Ahmed", "Jahanzaib","Qasim", "Majid","Ahmed", "Mujeeb") 
+
+console.log(myFriends)
