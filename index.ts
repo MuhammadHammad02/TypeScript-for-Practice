@@ -1,40 +1,22 @@
-//Structual Typing Object Literals
+// nested object 
 
-// There are Two interfaces are completely 
-// Transferrable in a structural type system:
+type Author = {
+    firstName: string;
+    lastName: string;
+};
 
-interface Ball {
-    diameter : number
+type Book = {
+    author: Author;
+    name: string;
+};
+
+const myBook : Book = {
+    author: {
+        firstName: "Hammad",
+        lastName: "Khan"
+    },
+    
+        name: "My Best Book"
+    
+
 }
-
-interface Sphere {
-    diameter: number
-}
-
-let ball : Ball = {diameter : 10}
-
-let sphere : Sphere = {diameter: 20}
-
-sphere = ball
-ball = sphere
-
-// If we add in a type which structurally contains all of
-  // the members of Ball and Sphere, then it also can be
-  // set to be a ball or sphere.
-
-  interface Tube {
-    diameter: number;
-    length: number;
-  }
-  
-  let tube: Tube = { diameter: 12, length: 3 };
-  
-  //tube = ball;//Error
-  ball = tube;
-
-  // Because a ball does not have a length, then it cannot be
-  // assigned to the tube variable. However, all of the members
-  // of Ball are inside tube, and so it can be assigned.
-
-  // TypeScript is comparing each member in the type against
-  // each other to verify their equality.
