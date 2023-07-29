@@ -1,24 +1,40 @@
-// Objects
+// Object Aliased
 
-let student = {
-    name: "SHabbir",
-    class: '5'
+// anonymous
 
-}
-console.log(student.name)
-console.log(student['class'])
-
-// Type declaration
-
-let teacher : {
-    name : string,
-    experience: number,
+let teacher :{name: string, experience:number }={
+    name:'Qasim',
+    experience: 10
 
 }
-teacher = {
-    name : "Hammad",
-    experience: 10,
+
+// Aliased Type Object
+
+type Student = {
+    name: string,
+    age: number
 }
 
-console.log(teacher.name)
-console.log(teacher['experience'])
+let student: Student={
+    name: "Umair",
+    age : 34
+}
+
+console.log(student["name"])
+console.log(student.age)
+
+// Interface
+
+interface Manager {
+    name: string,
+    age?: number
+}
+
+let myManager: Manager= {
+    name: "Jibran",
+    age: 43
+}
+
+let myEmployee : Manager={
+    name: "Kashif"
+}

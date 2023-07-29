@@ -1,16 +1,20 @@
-// Objects
+// Object Aliased
+// anonymous
+let teacher = {
+    name: 'Qasim',
+    experience: 10
+};
 let student = {
-    name: "SHabbir",
-    class: '5'
+    name: "Umair",
+    age: 34
 };
-console.log(student.name);
-console.log(student['class']);
-// Type declaration
-let teacher;
-teacher = {
-    name: "Hammad",
-    experience: 10,
+console.log(student["name"]);
+console.log(student.age);
+let myManager = {
+    name: "Jibran",
+    age: 43
 };
-console.log(teacher.name);
-console.log(teacher['experience']);
+let myEmployee = {
+    name: "Kashif"
+};
 export {};
