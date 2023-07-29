@@ -1,27 +1,8 @@
-var Color;
-(function (Color) {
-    Color[Color["Red"] = 0] = "Red";
-    Color[Color["Green"] = 1] = "Green";
-    Color[Color["Blue"] = 2] = "Blue";
-})(Color || (Color = {}));
-;
-var c = Color.Green;
-console.log(c);
-var Color1;
-(function (Color1) {
-    Color1[Color1["Red"] = 1] = "Red";
-    Color1[Color1["Green"] = 2] = "Green";
-    Color1[Color1["Blue"] = 3] = "Blue";
-})(Color1 || (Color1 = {}));
-;
-var colorName = Color1[2];
-console.log(colorName);
-var Color2;
-(function (Color2) {
-    Color2[Color2["Red"] = 1] = "Red";
-    Color2[Color2["Green"] = 2] = "Green";
-    Color2[Color2["Blue"] = 4] = "Blue";
-})(Color2 || (Color2 = {}));
-var colorIndex = Color2["Blue"];
-console.log(colorIndex);
+let array1 = [5, 6, 7]; //correct syntax
+console.log(array1[1]); //correct syntax
+let array2 = [1, 2, 3]; //alternative correct syntax
+let array3 = []; //correct syntax to define an empty array
+//let array4: number[] = new number[2];//error
+let array5 = [];
+array5.push(1234); //dynamically adding
 export {};
