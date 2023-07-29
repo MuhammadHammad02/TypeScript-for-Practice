@@ -1,79 +1,24 @@
-let myname: string| null;
+// Objects
 
-myname = 'hammad';
-console.log(myname)
+let student = {
+    name: "SHabbir",
+    class: '5'
 
-myname = null;
+}
+console.log(student.name)
+console.log(student['class'])
 
-console.log(myname)
+// Type declaration
 
-//myname = undefined // error
-//myname = 12 // error
+let teacher : {
+    name : string,
+    experience: number,
 
-let myAge : string| number
-
-myAge = 34; // narrowing
-
-console.log(myAge)
-//console.log(myAge.toLowerCase()); // Error
-
-myAge = "Dont Know";
-
-console.log(myAge);
-console.log(myAge.toString()); // common to both types can be called even without narrowing
-
-console.log(myAge.toUpperCase()); // can be called on string because of narrowing
-
-let newAge = Math.random() > 0.5 ? "Khan": 60;
-
-//newAge.toLowerCase(); // error: tanspiler can not narrow
-
-if (newAge == "Khan"){
-    // type of newAge : string
-
-    newAge.toUpperCase(); // can be called
+}
+teacher = {
+    name : "Hammad",
+    experience: 10,
 }
 
-if (typeof newAge === "string"){
-
-    newAge.toLowerCase(); //can be called
-}
-
-typeof newAge === "string"
-? newAge.toUpperCase() //Ok string
-: newAge.toFixed() // ok number
-
-let age : number | "died"| "unknown";
-
-//age= "Hammad"// error
-
-age = 95 //ok
-age = "died" //ok
-age = 'unknown'//ok
-
-let hammad: 'hammad'
-
-hammad = 'hammad'
-//hammad = 'khan' //error
-
-
-let yourName = Math.random() > 0.6 ? "Hira Khan": undefined;
-
-if (yourName) {
-    yourName.toUpperCase(); // Ok: string
-}
-
-//yourName.toUpperCase();//Error: Object is possibly 'undefined'.
-
-yourName?.toUpperCase();//OK
-
-// You can also define a type alias
-type RawData = boolean | number | string | null | undefined;
-
-let data: RawData;
-
-// You can even combine them
-
-type Id = number | string;
-
-type IdMaybe = Id | undefined | null;
+console.log(teacher.name)
+console.log(teacher['experience'])
