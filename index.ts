@@ -1,40 +1,40 @@
-// Object Aliased
+//Structual Typing Object Literals
 
-// anonymous
+// There are Two interfaces are completely 
+// Transferrable in a structural type system:
 
-let teacher :{name: string, experience:number }={
-    name:'Qasim',
-    experience: 10
-
+interface Ball {
+    diameter : number
 }
 
-// Aliased Type Object
-
-type Student = {
-    name: string,
-    age: number
+interface Sphere {
+    diameter: number
 }
 
-let student: Student={
-    name: "Umair",
-    age : 34
-}
+let ball : Ball = {diameter : 10}
 
-console.log(student["name"])
-console.log(student.age)
+let sphere : Sphere = {diameter: 20}
 
-// Interface
+sphere = ball
+ball = sphere
 
-interface Manager {
-    name: string,
-    age?: number
-}
+// If we add in a type which structurally contains all of
+  // the members of Ball and Sphere, then it also can be
+  // set to be a ball or sphere.
 
-let myManager: Manager= {
-    name: "Jibran",
-    age: 43
-}
+  interface Tube {
+    diameter: number;
+    length: number;
+  }
+  
+  let tube: Tube = { diameter: 12, length: 3 };
+  
+  //tube = ball;//Error
+  ball = tube;
 
-let myEmployee : Manager={
-    name: "Kashif"
-}
+  // Because a ball does not have a length, then it cannot be
+  // assigned to the tube variable. However, all of the members
+  // of Ball are inside tube, and so it can be assigned.
+
+  // TypeScript is comparing each member in the type against
+  // each other to verify their equality.
